@@ -1,3 +1,5 @@
+Breaking Bad generator that highlights elements of the periodic table in inputted text.
+
 #How to install
 
 1. Clone this repo with clone url: https://github.com/eyaylali/breaking-bad.git
