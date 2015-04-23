@@ -8,9 +8,6 @@ var Display = React.createClass({
 		var i;
 		var skipLoop = false;
 
-		var matchesTwoChar;
-		var matchesOneChar;
-
 		if (inputPhrase) {
 			for (i = 0; i < inputPhrase.length; i++) {
 				if (skipLoop) {
@@ -44,5 +41,3 @@ var Display = React.createClass({
 });
 
 module.exports = Display;
-
-// outputArray.join
