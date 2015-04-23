@@ -48,10 +48,6 @@ Dispatcher.register(function(action) {
       Store.emitChange();
       break;
 
-    // case Constants.UPDATE_DISPLAY:
-    //   Store.emitChange();
-    //   break;
-
     default:
   }
 });
