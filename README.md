@@ -1,4 +1,4 @@
-![How to install]
+#How to install
 
 1. Clone this repo with clone url: https://github.com/eyaylali/breaking-bad.git
 
@@ -8,4 +8,6 @@
 
 4. Navigate to http://localhost:8000
 
+
+![Breaking Bad Highlighter]
 (/img/pic.png)
