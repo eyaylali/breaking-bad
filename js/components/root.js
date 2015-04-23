@@ -8,7 +8,7 @@ var Root = React.createClass({
 	    return Store.getAppState();
 	},
 	onChange: function() {
-		this.setState(Store.getAppState())
+		this.setState(Store.getAppState());
 	},
 	componentDidMount: function () {
 	    Store.addChangeListener(this.onChange); 
@@ -24,3 +24,4 @@ var Root = React.createClass({
 });
 
 module.exports = Root;
+

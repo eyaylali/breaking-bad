@@ -30,6 +30,19 @@ function initialize () {
 	});
 }
 
+// function initialize () {
+// 	$.ajax({
+// 		type: "GET",
+// 		url: "https://jquery-pte.googlecode.com/files/jquery.pte.json",
+// 		dataType: "jsonp",
+// 		success: function(data){
+// 			Actions.receiveData(data);
+//   		}
+// 	});
+// }
+
+
+
 module.exports = initialize;
 
 
@@ -48,15 +61,45 @@ React.render(React.createElement(Root, null), document.getElementById("app"));
 },{"./api/initialize_periodic_elements.js":2,"./components/root":6,"react":170}],4:[function(require,module,exports){
 var React = require('react');
 
-
 var Display = React.createClass({displayName: "Display",
 	render: function() {
 		var elementsArray = this.props.elements;
 		var inputPhrase = this.props.inputPhrase;
-		var outputArray 
+		var outputArray = [];
+		var i;
+		var skipLoop = false;
+
+		var matchesTwoChar;
+		var matchesOneChar;
+
+		if (inputPhrase) {
+			for (i = 0; i < inputPhrase.length; i++) {
+				if (skipLoop) {
+					skipLoop = false;
+					continue;
+				}
+				var character = inputPhrase[i];
+				if (character === character.toUpperCase() && character !== " ") {
+					if ( i + 1 < inputPhrase.length) {
+						var characterPair = character + inputPhrase[i+1];
+						console.log("char pair", characterPair);
+						if (elementsArray.indexOf(characterPair) > 0) {
+							outputArray.push(React.createElement("span", {className: "highlight", key: i}, characterPair));
+							skipLoop = true;
+							continue;
+						} 
+					}
+					if (elementsArray.indexOf(character) > 0) {
+						outputArray.push(React.createElement("span", {className: "highlight", key: i}, character));
+						continue;
+					}
+				}
+				outputArray.push(character);
+			}
+		}
 	return (
 		React.createElement("div", {id: "display"}, 
-			React.createElement("p", null, inputPhrase)
+			React.createElement("p", null, outputArray)
 		)
 	)
   }
@@ -64,6 +107,7 @@ var Display = React.createClass({displayName: "Display",
 
 module.exports = Display;
 
+// outputArray.join
 
 },{"react":170}],5:[function(require,module,exports){
 var React = require('react');
@@ -107,12 +151,13 @@ var Root = React.createClass({displayName: "Root",
 	    return Store.getAppState();
 	},
 	onChange: function() {
-		this.setState(Store.getAppState())
+		this.setState(Store.getAppState());
 	},
 	componentDidMount: function () {
 	    Store.addChangeListener(this.onChange); 
 	},
 	render: function() {
+		console.log(this.state.elements);
     return (
     	React.createElement("div", {className: "display"}, 
 	    	React.createElement(InputForm, null), 
@@ -170,6 +215,7 @@ var Store = assign({}, EventEmitter.prototype, {
 });
 
 var getElements = function(data) {
+  console.log("called");
   return data.PERIODIC_TABLE.ATOM.map( function(currentValue) {
     return currentValue["SYMBOL"];
   })

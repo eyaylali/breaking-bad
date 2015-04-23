@@ -6,4 +6,17 @@ function initialize () {
 	});
 }
 
+// function initialize () {
+// 	$.ajax({
+// 		type: "GET",
+// 		url: "https://jquery-pte.googlecode.com/files/jquery.pte.json",
+// 		dataType: "jsonp",
+// 		success: function(data){
+// 			Actions.receiveData(data);
+//   		}
+// 	});
+// }
+
+
+
 module.exports = initialize;

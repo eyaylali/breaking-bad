@@ -4,7 +4,7 @@
   "description": "App that highlights periodic table elements in an inputted word",
   "main": "js/app.js",
   "scripts": {
-    "start": "watchify -t reactify js/app.js -o bundle.js",
+    "start": "browserify -t reactify js/app.js -o bundle.js && python -m SimpleHTTPServer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

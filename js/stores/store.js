@@ -28,6 +28,7 @@ var Store = assign({}, EventEmitter.prototype, {
 });
 
 var getElements = function(data) {
+  console.log("called");
   return data.PERIODIC_TABLE.ATOM.map( function(currentValue) {
     return currentValue["SYMBOL"];
   })

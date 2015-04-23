@@ -31,7 +31,6 @@ button {
     font-size: 15px;
     font-family: 'Roboto', serif;
     vertical-align: middle;
-
 }
 
 button:focus {
@@ -49,4 +48,10 @@ button:focus {
 	color: #696969;
 	font-family:'Roboto', serif;
 	font-size: 32px;
+}
+
+.highlight {
+	border-style: solid;
+	border-color: #00E5EE;
+	border-width: 3px;
 }
