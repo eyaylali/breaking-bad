@@ -1,7 +1,9 @@
 var Actions = require('../actions/actions');
 
 function initialize () {
-$.get("https://jquery-pte.googlecode.com/files/jquery.pte.json", function(data) {
+	$.get('periodic_data.json', function(data) {
 		Actions.receiveData(data);
-	}
-});
+	});
+}
+
+module.exports = initialize;

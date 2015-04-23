@@ -39,11 +39,12 @@ Dispatcher.register(function(action) {
   switch(action.actionType) {
 
     case Constants.RECEIVE_DATA:
-      appState.elements = getElements(data);
+      appState.elements = getElements(action.data);
       Store.emitChange();
       break;
 
     case Constants.UPDATE_PHRASE:
+      appState.inputPhrase = action.phrase;
       Store.emitChange();
       break;
 

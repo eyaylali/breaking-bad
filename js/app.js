@@ -1,9 +1,9 @@
 var React = require('react');
-var API = require('api/periodic_elements.js');
-
+var InitializeElements = require('./api/initialize_periodic_elements.js');
 var Root = require('./components/root');
 
-API.initialize()
+
+InitializeElements();
 React.render(<Root/>, document.getElementById("app"));
 
 
