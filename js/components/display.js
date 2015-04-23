@@ -7,7 +7,9 @@ var Display = React.createClass({
 		var inputPhrase = this.props.inputPhrase;
 		var outputArray 
 	return (
-		<p>{}</p>
+		<div id="display">
+			<p>{inputPhrase}</p>
+		</div>
 	)
   }
 });

@@ -15,7 +15,7 @@ var Root = React.createClass({
 	},
 	render: function() {
     return (
-    	<div>
+    	<div className="display">
 	    	<InputForm/>
 	    	<Display inputPhrase={this.state.inputPhrase} elements={this.state.elements} />
 	    </div>

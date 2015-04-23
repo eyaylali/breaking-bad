@@ -55,7 +55,9 @@ var Display = React.createClass({displayName: "Display",
 		var inputPhrase = this.props.inputPhrase;
 		var outputArray 
 	return (
-		React.createElement("p", null)
+		React.createElement("div", {id: "display"}, 
+			React.createElement("p", null, inputPhrase)
+		)
 	)
   }
 });
@@ -83,9 +85,9 @@ var InputForm = React.createClass({displayName: "InputForm",
 	},
 	render: function() {
 	return (
-		React.createElement("div", null, 
+		React.createElement("div", {id: "form"}, 
 			React.createElement("input", {onChange: this.onChange, value: this.state.text}), 
-			React.createElement("button", {onClick: this.onClick}, 'Submit')
+			React.createElement("button", {onClick: this.onClick}, 'SUBMIT')
 		)
 	)
 }
@@ -112,7 +114,7 @@ var Root = React.createClass({displayName: "Root",
 	},
 	render: function() {
     return (
-    	React.createElement("div", null, 
+    	React.createElement("div", {className: "display"}, 
 	    	React.createElement(InputForm, null), 
 	    	React.createElement(Display, {inputPhrase: this.state.inputPhrase, elements: this.state.elements})
 	    )

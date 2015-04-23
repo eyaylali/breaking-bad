@@ -17,9 +17,9 @@ var InputForm = React.createClass({
 	},
 	render: function() {
 	return (
-		<div>
+		<div id="form">
 			<input onChange={this.onChange} value={this.state.text} />
-			<button onClick={this.onClick}>{'Submit'}</button>
+			<button onClick={this.onClick}>{'SUBMIT'}</button>
 		</div>
 	)
 }
